@@ -584,6 +584,7 @@ main .container .right {
     padding: 3rem;
     border-radius: var(--card-border-radius);
     width: 50%;
+    box-shadow: 0 0 1rem var(--color-primary) ;
 }
 
 /* font size */
@@ -737,11 +738,15 @@ main .container .right {
     .sidebar h3 {
         display: none;
     }
+
+    .customize-theme .card {
+        width: 80vw;
+    }
 }
 
 /* media queries 992px (mobile) */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 992px) {
     nav .search-bar {
         display: none;
     }
@@ -777,5 +782,9 @@ main .container .right {
 
     main .container .right {
         display: none;
+    }
+
+    .customize-theme .card {
+        width: 92vw;
     }
 }

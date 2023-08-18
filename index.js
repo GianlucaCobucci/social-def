@@ -5,6 +5,10 @@ const messagesNotification = document.querySelector("#messages-notification");
 const messages = document.querySelector(".messages");
 const message = messages.querySelectorAll(".message");
 const messageSearch = document.querySelector("#message-search");
+//THEME CUSTOM
+const theme = document.querySelector("#theme");
+const themeModal = document.querySelector(".customize-theme");
+
 
 /* SIDEBAR */
 //rimuovi active da tutti gli items della sidebar
@@ -54,7 +58,22 @@ messagesNotification.addEventListener("click", () => {
     }, 1000);
 })
 
+/* THEME CUSTOMIZATION */
+//apri modale
+const openThemeModal = () => {
+    themeModal.style.display = "grid";
+}
+ 
+const closeThemeModal = (event) => {
+    if(event.target.classList.contains("customize-theme")) {
+        themeModal.style.display = "none"
+    }
+}
 
+//chiudi modale
+themeModal.addEventListener("click", closeThemeModal)
+
+theme.addEventListener("click", openThemeModal)
 
 
 
