@@ -8,7 +8,9 @@ const messageSearch = document.querySelector("#message-search");
 //THEME CUSTOM
 const theme = document.querySelector("#theme");
 const themeModal = document.querySelector(".customize-theme");
-
+//CHANGE COLOR 
+const colorPalette = document.querySelectorAll(".choose-color span");
+let primaryHue = 252; 
 
 /* SIDEBAR */
 //rimuovi active da tutti gli items della sidebar
@@ -34,20 +36,13 @@ menuItems.forEach(item => {
 
 /* MESSAGGI */
 //cerca chat
-const searchMessage = () => {
+messageSearch.addEventListener("keyup", () => {
     const value = messageSearch.value.toLowerCase();
-    //console.log(value);
     message.forEach(chat => {
-        let name = chat.querySelectorAll("h5").textContent.toLowerCase();
-        if (name.includes(value)) {
-            chat.style.display = 'flex';
-        } else {
-            chat.style.display = "none";
-        }
+        const name = chat.querySelector("h5").textContent.toLowerCase();
+        chat.style.display = name.includes(value) ? "flex" : "none";
     });
-};
-
-messageSearch.addEventListener("keyup", searchMessage);
+});
 
 //sottolinea messaggi quando menu item è cliccato
 messagesNotification.addEventListener("click", () => {
@@ -59,22 +54,41 @@ messagesNotification.addEventListener("click", () => {
 })
 
 /* THEME CUSTOMIZATION */
-//apri modale
-const openThemeModal = () => {
+//apri e chiudi modale
+theme.addEventListener("click", () => {
     themeModal.style.display = "grid";
-}
- 
-const closeThemeModal = (event) => {
-    if(event.target.classList.contains("customize-theme")) {
-        themeModal.style.display = "none"
+});
+
+themeModal.addEventListener("click", (event) => {
+    if (event.target.classList.contains("customize-theme")) {
+        themeModal.style.display = "none";
     }
+});
+
+/* CHANGE COLOR */
+//cambia colore principale
+colorPalette.forEach(color => {
+    color.addEventListener("click", () => {
+        changeActiveColorClass()
+        if (color.classList.contains("color-1")) {
+            primaryHue = 252;
+        } else if (color.classList.contains("color-2")) {
+            primaryHue = 52;
+        } else if (color.classList.contains("color-3")) {
+            primaryHue = 352;
+        } else if (color.classList.contains("color-4")) {
+            primaryHue = 152;
+        } else if (color.classList.contains("color-5")) {
+            primaryHue = 202;
+        }
+        color.classList.add("active")
+        document.documentElement.style.setProperty("--primary-color-hue", primaryHue);
+    });
+});
+
+//togli active 
+const changeActiveColorClass = () => {
+    colorPalette.forEach(colorPicker => {
+        colorPicker.classList.remove("active");
+    })
 }
-
-//chiudi modale
-themeModal.addEventListener("click", closeThemeModal)
-
-theme.addEventListener("click", openThemeModal)
-
-
-
-
