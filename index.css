@@ -488,6 +488,8 @@ main .container .right {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+    cursor: pointer;
+
 }
 
 .right .messages .category h6 {
@@ -500,6 +502,18 @@ main .container .right {
 
 .right .messages .category .active {
     border-color: var(--color-dark);
+}
+
+.right .messages .category .active-bar { /* aggiunto */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* Inizialmente sotto "Messaggio principale" */
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-white);
+    transition: left 0.3s ease;
+    /* Animazione fluida */
 }
 
 .right .messages .message {
@@ -585,7 +599,8 @@ main .container .right {
     display: grid;
     place-items: center;
     font-size: 0.9rem;
-    display: none; /* togliere */
+    display: none;
+    /* togliere */
 }
 
 .customize-theme .card {
@@ -593,7 +608,7 @@ main .container .right {
     padding: 3rem;
     border-radius: var(--card-border-radius);
     width: 50%;
-    box-shadow: 0 0 1rem var(--color-primary) ;
+    box-shadow: 0 0 1rem var(--color-primary);
 }
 
 /* color custom */
@@ -670,7 +685,7 @@ main .container .right {
 }
 
 .customize-theme .choose-bg .bg-2 {
-    background: hsl(0, 0%, 39%);
+    background: var(--color-primary);
     color: white;
 }
 
@@ -722,7 +737,7 @@ main .container .right {
     nav .search-bar {
         display: none;
     }
-    
+
     main .container {
         grid-template-columns: 0 auto 5rem;
     }
@@ -735,14 +750,14 @@ main .container .right {
     }
 
     /* notification popup */
-    .left .notifications-popup{
+    .left .notifications-popup {
         position: absolute;
         left: -20rem;
         width: 20rem;
     }
 
     .left .notifications-popup::before {
-        position: absolute; 
+        position: absolute;
         top: 1.3rem;
         left: calc(20rem - 0.6rem);
         display: block;

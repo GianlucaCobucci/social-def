@@ -19,6 +19,9 @@ const bg3 = document.querySelector(".bg-3");
 let lightColorLightness = "95%";
 let whiteColorLightness = "100%";
 let darkColorLightness = "17%";
+//ACTIVE BAR SUI MESSAGGI
+const category = document.querySelector(".category");
+const activeBar = document.querySelector(".active-bar");
 
 /* SIDEBAR */
 //rimuovi active da tutti gli items della sidebar
@@ -130,4 +133,20 @@ bg3.addEventListener("click", () => {
     darkColorLightness = "95%";
     setActiveBackground(bg3);
     changeBG();
+});
+
+/* ACTIVE BAR SUI MESSAGGI */
+// Funzione per gestire il clic sugli elementi della categoria
+category.addEventListener("click", (event) => {
+    const clickedElement = event.target;
+    if (clickedElement.tagName === "H6") {
+        // rimuovi la classe "active" dall'elemento attualmente attivo
+        const currentActiveElement = category.querySelector(".active");
+        currentActiveElement.classList.remove("active");
+        // aggiungi la classe "active" all'elemento cliccato
+        clickedElement.classList.add("active");
+        // sposta la barra bianca sotto l'elemento cliccato
+        const elementOffsetLeft = clickedElement.offsetLeft;
+        activeBar.style.left = `${elementOffsetLeft}px`;
+    }
 });
