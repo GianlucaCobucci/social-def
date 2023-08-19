@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,500&family=Rubik:wght@400;500;700&display=swap');
 
 :root {
+    --primary-color-hue: 252;
     --color-white: hsl(252, 30%, 100%);
     --color-light: hsl(252, 30%, 95%);
     --color-gray: hsl(252, 15%, 65%);
-    --color-primary: hsl(252, 75%, 60%);
+    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
     --color-secondary: hsl(252, 100%, 90%);
     --color-success: hsl(120, 95%, 65%);
     --color-danger: hsl(0, 95%, 65%);
@@ -587,44 +588,7 @@ main .container .right {
     box-shadow: 0 0 1rem var(--color-primary) ;
 }
 
-/* font size */
-
-.customize-theme .font-size {
-    margin-top: 5rem;
-}
-
-.customize-theme .font-size>div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--color-light);
-    padding: var(--search-padding);
-    border-radius: var(--card-border-radius);
-}
-
-.customize-theme .choose-size {
-    background: var(--color-secondary);
-    height: 0.3rem;
-    width: 100%;
-    margin: 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.customize-theme .choose-size span {
-    width: 1rem;
-    height: 1rem;
-    background: var(--color-secondary);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.customize-theme .choose-size span.active {
-    background: var(--color-primary);
-}
-
-/* font size 2 */
+/* color custom */
 .customize-theme .choose-color {
     background: var(--color-light);
     padding: var(--search-padding);
